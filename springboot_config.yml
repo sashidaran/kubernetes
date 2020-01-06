@@ -3,7 +3,7 @@ kind: ReplicationController
 metadata:
   labels:
     name: k8s-spring-boot
-  name: k8s-spring-boot
+  name: spring-controller
 spec:
   replicas: 1
   template:
@@ -12,11 +12,11 @@ spec:
         name: k8s-spring-boot
     spec:
       containers:
-      - image: sashivijaya/k8s-spring-boot
-        name: k8s-spring-boot
-        ports:
-        - name: k8s-spring-boot
-          containerPort: 8080
+        - image: sashivijaya/k8s-spring-boot:latest
+          name: k8s-spring-boot
+          ports:
+            - name: k8s-spring-boot
+              containerPort: 8080
 ---
 # Node Port Service
 apiVersion: v1
@@ -31,5 +31,4 @@ spec:
     - port: 8080
       targetPort: 8080
   selector:
-    name: k8s-spring-boot
----
+    name: springboot
