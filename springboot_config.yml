@@ -12,7 +12,7 @@ spec:
         name: k8s-spring-boot
     spec:
       containers:
-        - image: sashivijaya/k8s-spring-boot:latest
+        - image: sashivijaya/k8s-spring-boot:12
           name: k8s-spring-boot
           ports:
             - name: k8s-spring-boot
