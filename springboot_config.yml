@@ -3,9 +3,8 @@ kind: ReplicationController
 metadata:
   labels:
     name: k8s-spring-boot
-  name: spring-controller
 spec:
-  replicas: 1
+  replicas: 3
   template:
     metadata:
       labels:
@@ -31,4 +30,4 @@ spec:
     - port: 8080
       targetPort: 8080
   selector:
-    name: springboot
+    name: k8s-spring-boot
