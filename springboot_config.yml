@@ -3,6 +3,7 @@ kind: ReplicationController
 metadata:
   labels:
     name: k8s-spring-boot
+  name: k8s-spring-boot
 spec:
   replicas: 3
   template:
