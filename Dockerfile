@@ -1,3 +1,5 @@
-FROM tomcat:8.0.20-jre8
+FROM openjdk:8-jdk-alpine
 # test text
-COPY target/k8s-spring-boot*.jar /usr/local/tomcat/webapps/sg-spring-boot.jar
+COPY target/k8s-spring-boot*.jar sg-spring-boot.jar
+ENV JAVA_OPTS=""
+ENTRYPOINT exec java -jar /app.jar --debug
