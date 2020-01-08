@@ -32,39 +32,3 @@ spec:
       targetPort: 8080
   selector:
     name: k8s-spring-boot
----
-kind: Service
-apiVersion: v1
-metadata:
-  name: k8s-spring-boot
-spec:
-  selector:
-    app: k8s-spring-boot
-    tier: backend
-  ports:
-    - protocol: TCP
-      port: 8080
-  type: ClusterIP
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: k8s-spring-boot
-spec:
-  selector:
-    matchLabels:
-      app: k8s-spring-boot
-      tier: backend
-  replicas: 3
-  template:
-    metadata:
-      labels:
-        app: k8s-spring-boot
-        tier: backend
-    spec:
-      containers:
-        - name: k8s-spring-boot
-          image: sashivijaya/k8s-spring-boot:latest
-          imagePullPolicy: Never
-          ports:
-            - containerPort: 8080
